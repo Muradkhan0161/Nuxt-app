@@ -1,0 +1,19 @@
+{
+  "name": "my-first-nuxt-app",
+  "version": "1.0.0",
+  "description": "My groundbreaking Nuxt.js project",
+  "author": "Muradkhan0161",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate"
+  },
+  "dependencies": {
+    "nuxt": "^2.0.0"
+  },
+  "devDependencies": {
+    "@nuxtjs/vuetify": "^1.0.0"
+  }
+}
