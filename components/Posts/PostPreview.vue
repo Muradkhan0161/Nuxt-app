@@ -1,14 +1,39 @@
 <template>
-    <nuxt-link :to="'/posts/' + 1" class="post-preview">
+    <nuxt-link :to="'/posts/' + id" class="post-preview">
             <article>
-                <div class="post-thumbnail" style="background-image: url('https://media-eng.dhakatribune.com/uploads/2019/08/bigstock-creating-software-and-website-295627450-1564745123094.jpg')"></div>
+                <div class="post-thumbnail" 
+                :style="{backgroundImage: 'url(' + thumbnail + ')'}"></div>
                 <div class="post-content">
-                    <h1>Post title</h1>
-                    <p>Preview Text</p>
+                    <h1>{{title}}</h1>
+                    <p>{{post}}</p>
                 </div>
             </article>
             </nuxt-link>
 </template>
+
+<script>
+export default {
+  name: 'PostPreview',
+  props: {
+    id: {
+      type: String,
+      required: true
+    },
+    title: {
+      type: String,
+      required: true
+    },
+    post: {
+      type: String,
+      required: true
+    },
+    thumbnail: {
+      type: String,
+      required: true
+    }
+  } 
+}
+</script>
 
 <style>
 .post-preview {
