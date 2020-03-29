@@ -1,15 +1,15 @@
 <template>
-   <div>
-     <nuxt/>
-   </div>
+  <div>
+    <nuxt/>
+  </div>
 </template>
 
 <style>
-html{
-  font-family: 'open sans', sans-serif;
+html {
+  font-family: 'Open Sans', sans-serif;
 }
 
-body{
-  margin: 0%;
+body {
+  margin: 0;
 }
 </style>

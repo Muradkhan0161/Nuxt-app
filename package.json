@@ -1,8 +1,8 @@
 {
-  "name": "my-first-nuxt-app",
+  "name": "nuxt-course",
   "version": "1.0.0",
-  "description": "My groundbreaking Nuxt.js project",
-  "author": "Muradkhan0161",
+  "description": "Nuxt.js course for Udemy",
+  "author": "Maximilian Schwarzmüller",
   "private": true,
   "scripts": {
     "dev": "nuxt",
@@ -11,9 +11,9 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
-    "nuxt": "^2.0.0"
+    "nuxt": "^2.12.1"
   },
   "devDependencies": {
-    "@nuxtjs/vuetify": "^1.0.0"
+    "cross-env": "^5.0.1"
   }
 }

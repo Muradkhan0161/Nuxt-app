@@ -1,34 +1,14 @@
 <template>
-     <section class="Post-list">
-            <PostPreview
-            id="1"
-            :is-admin="isAdmin"
-            title="Hey there"
-            thumbnail="https://www.tececorp.com/wp-content/uploads/2019/05/050318_LRR_MEN_WomenTech-1-1.jpg"
-            post="Check out my first post"
-            />
-            <PostPreview 
-            id="2"
-            :is-admin="isAdmin"
-            title="Hey there"
-            thumbnail="https://d30fl32nd2baj9.cloudfront.net/media/2020/01/02/technology-smart-device-010120-01.jpg/BINARY/technology-smart-device-010120-01.jpg"
-            post="Check out my second post"
-            />
-            <PostPreview 
-            id="3"
-            :is-admin="isAdmin"
-            title="Hey there"
-            thumbnail="https://images.frandroid.com/wp-content/uploads/2020/03/coronavirus-covid-19.jpg"
-            post="Check out my third post"
-            />
-            <PostPreview 
-            id="4"
-            :is-admin="isAdmin"
-            title="Hey there"
-            thumbnail="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSddya9qHKTlBurDXgxImzz8dv29ehROkIW5YvWUd1pAJs6snVE"
-            post="Check out my forth post"
-            />
-        </section>
+  <section class="post-list">
+    <PostPreview
+      v-for="post in posts"
+      :key="post.id"
+      :id="post.id"
+      :is-admin="isAdmin"
+      :thumbnail="post.thumbnail"
+      :title="post.title"
+      :previewText="post.previewText" />
+  </section>
 </template>
 
 <script>
@@ -40,15 +20,21 @@ export default {
   },
   props: {
     isAdmin: {
-    type: Boolean,
-    default: false
-              }
-          }
+      type: Boolean,
+      default: false
+    },
+    posts: {
+      type: Array,
+      required: true
+    }
+  }
 }
 </script>
 
+
 <style scoped>
-.Post-list {
+
+.post-list {
   display: flex;
   padding: 20px;
   box-sizing: border-box;
@@ -57,3 +43,4 @@ export default {
   justify-content: center;
 }
 </style>
+

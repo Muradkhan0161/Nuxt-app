@@ -16,8 +16,8 @@
 </template>
 
 <script>
-import AppControlInput from '@/components/UI-Components/AppControlInput'
-import AppButton from '@/components/UI-Components/AppButton'
+import AppControlInput from '@/components/UI/AppControlInput'
+import AppButton from '@/components/UI/AppButton'
 
 export default {
   name: 'AdminAuthPage',
@@ -49,3 +49,4 @@ export default {
   box-sizing: border-box;
 }
 </style>
+
