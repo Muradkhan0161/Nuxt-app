@@ -1,7 +1,7 @@
 <template>
   <div class="admin-new-post-page">
     <section class="new-post-form">
-      <AdminPostForm @submit="onSubmitted"/>
+      <AdminPostForm @submit="onSubmitted" />
     </section>
   </div>
 </template>
@@ -37,4 +37,3 @@ export default {
   }
 }
 </style>
-

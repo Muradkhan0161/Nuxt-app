@@ -18,13 +18,12 @@ export default {
     loadedPosts() {
       return this.$store.getters.loadedPosts
     }
-  },
+  }
   // data() {
   //   return {
   //     loadedPosts: []
   //   };
   // },
-  created() {}
 };
 </script>
 

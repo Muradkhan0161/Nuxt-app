@@ -1,50 +1,38 @@
-import Vuex from 'vuex'
+import Vuex from "vuex";
+import axios from "axios";
 
-const createStore = () => { 
-    return new Vuex.Store({
-        state: {
-            loadedPosts: []
-        },
-        mutations: {
-            setPosts(state, posts) {
-                state.loadedPosts = posts
+const createStore = () => {
+  return new Vuex.Store({
+    state: {
+      loadedPosts: []
+    },
+    mutations: {
+      setPosts(state, posts) {
+        state.loadedPosts = posts;
+      }
+    },
+    actions: {
+      nuxtServerInit(vuexContext, context) {
+        return axios.get('https://nuxt-blog-e99f9.firebaseio.com/posts.json')
+          .then(res => {
+            const postsArray = []
+            for (const key in res.data) {
+              postsArray.push({ ...res.data[key], id: key })
             }
-        },
-        actions: {
-            nuxtServerInit(vuexContex, context) {
-                return new Promise((resolve, reject) => {
-                    setTimeout(() => {
-                        vuexContex.commit('setPosts', [
-                            {
-                                id: "1",
-                                title: "First Post",
-                                previewText: "This is our first post!",
-                                thumbnail:
-                                  "https://static.pexels.com/photos/270348/pexels-photo-270348.jpeg"
-                              },
-                              {
-                                id: "2",
-                                title: "Second Post",
-                                previewText: "This is our second post!",
-                                thumbnail:
-                                  "https://static.pexels.com/photos/270348/pexels-photo-270348.jpeg"
-                              }
-                        ]);
-                        resolve();
-                    }, 1000);
-                      // reject(new Error())
-                    });
-            },
-            setPosts(vuexContex, posts){
-                vuexContex.commit('setPosts', posts)
-            }
-        },
-        getters: {
-            loadedPosts(state) {
-                return state.loadedPosts
-            }
-        }
-    })
- }
+            vuexContext.commit('setPosts', postsArray)
+          })
+          .catch(e => context.error(e));
+      },
+      setPosts(vuexContext, posts) {
+        vuexContext.commit("setPosts", posts);
+      }
+    },
+    getters: {
+      loadedPosts(state) {
+        return state.loadedPosts;
+      }
+    }
+  });
+};
 
- export default createStore
+export default createStore;
