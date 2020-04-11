@@ -32,6 +32,7 @@ module.exports = {
   ** Global CSS
   */
   css: [
+    '~assets/styles/main.css'
   ],
 
   /*
@@ -56,5 +57,8 @@ module.exports = {
     extend(config, ctx) {
 
     }
+  },
+  env: {
+    baseUrl : process.env.BASE_URL || 'https://nuxt-blog-e99f9.firebaseio.com'
   }
 }
