@@ -84,4 +84,8 @@ module.exports = {
     name: 'fade',
     mode: 'in-out'
   }
+
+  //router: {
+  //  middleware: 'log'
+  //}
 }

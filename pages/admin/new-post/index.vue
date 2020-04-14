@@ -7,11 +7,9 @@
 </template>
 
 <script>
-import axios from "axios";
-
 export default {
   layout: "admin",
-  
+
   methods: {
     onSubmitted(postData) {
       this.$store.dispatch("addPost", postData).then(() => {
