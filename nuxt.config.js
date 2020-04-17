@@ -81,10 +81,10 @@ module.exports = {
   //    })
   //  }
   //}
-  transition: {
-    name: 'fade',
-    mode: 'in-out'
-  }
+  //ransition: {
+  //  name: 'fade',
+  //  mode: 'in-out'
+  //}
 
   //router: {
   //  middleware: 'log'
