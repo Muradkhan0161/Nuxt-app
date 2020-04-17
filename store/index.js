@@ -20,7 +20,7 @@ const createStore = () => {
         state.loadedPosts[postIndex] = editedPost
       },
       setToken(state, token){
-        this.token = token
+        state.token = token;
       }
     },
     actions: {
@@ -40,22 +40,23 @@ const createStore = () => {
         const createdPost = {
           ...post,
           updatedDate: new Date()
-        }
+        };
         return this.$axios
-        .$post("/posts.json", createdPost)
+        .$post("/posts.json?auth=" + vuexContext.state.token, createdPost)
         .then(data => {
           vuexContext.commit('addPost', {...createdPost, id: data.name})
         })
         .catch(e => console.log(e));
       },
       editPost(vuexContext, editedPost) {
-        return this.$axios.$put("/posts/" +
+        return this.$axios
+        .$put("/posts/" +
           editedPost.id +
-          ".json", editedPost)
-          .then(data => {
+          ".json?auth=" + vuexContext.state.token, editedPost)
+          .then(res => {
             vuexContext.commit('editPost', editedPost)
           })
-          .catch(e => console.log(e))
+          .catch(e => console.log(e));
       },
       setPosts(vuexContext, posts) {
         vuexContext.commit("setPosts", posts);
