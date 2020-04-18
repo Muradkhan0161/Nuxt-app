@@ -25,11 +25,11 @@ export default {
       isLogin: true,
       email: '',
       password: ''
-    }
+    };
   },
   methods: {
     onSubmit () {
-     this.$store.dispatch("authenticateUser", {
+     this.$store.dispatch('authenticateUser', {
        isLogin: this.isLogin,
        email: this.email,
        password: this.password
@@ -39,7 +39,7 @@ export default {
      });
      }
     }
-  }
+  };
 
 </script>
 
