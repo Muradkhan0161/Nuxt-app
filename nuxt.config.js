@@ -1,4 +1,5 @@
 const pkg = require('./package')
+const bodyParser = require('body-parser')
 
 module.exports = {
   mode: 'universal',
@@ -70,6 +71,10 @@ module.exports = {
     baseUrl : process.env.BASE_URL || 'https://nuxt-blog-e99f9.firebaseio.com',
     fbAPIKey: 'AIzaSyDbDfHeM3RahCeheQk-aS_I7Qsi0bfwuzc'
   },
+  serverMiddleware: [
+    bodyParser.json(),
+    '~/api'
+  ]
   //router: {
   //  linkActiveClass: 'active'
   //}
